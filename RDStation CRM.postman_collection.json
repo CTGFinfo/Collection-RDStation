@@ -1,0 +1,497 @@
+{
+	"info": {
+		"_postman_id": "a639a699-93c9-4acc-b399-b5dea9b97026",
+		"name": "RDStation CRM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"token\": '{{RD_Token}}'\r\n}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/token/check?token={{RD_Token}}",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"token",
+						"check"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{RD_Token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "empresas - listar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/organizations/?token={{RD_Token}}&q=J4283",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"organizations",
+						""
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{RD_Token}}"
+						},
+						{
+							"key": "q",
+							"value": "J4283"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "empresas - cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\"token\": \"{{RD_Token}}\",\r\n\"organization\": {\r\n  \"name\": \"nome da empresa\",\r\n  \"resume\": \"resumo da empresa\",\r\n  \"url\": \"https://www.xxxxxx.com.br/\",\r\n  \"user_id\": \"{{RD_user}}\" \r\n  \r\n}\r\n\r\n\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/organizations",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"organizations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "empresas - alterar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\"token\": \"{{RD_Token}}\",\r\n\"organization\": {\r\n  \"name\": \"nome da empresa\",\r\n  \"resume\": \"resumo da empresa\",\r\n  \"url\": \"https://www.xxxx.com.br/\",\r\n  \"user_id\": \"{{RD_user}}\" \r\n  \r\n}\r\n\r\n\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/organizations/619797a7cd75060011f6ad2d",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"organizations",
+						"619797a7cd75060011f6ad2d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "empresas - obter 1 cadastro",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/organizations/619fc227c8f38200183d6028?token={{RD_Token}}",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"organizations",
+						"619fc227c8f38200183d6028"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{RD_Token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "contatos - cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\": \"{{RD_Token}}\",\r\n    \"contact\": {\r\n        \"name\": \"Cleber Ferrari\",\r\n        \r\n\r\n\r\n        \"birthday\": {\"day\": 16, \"month\": 12, \"year\": 1976},\r\n\r\n        \"emails\": [\r\n            {\r\n                \"email\": \"cleber.ferrari@ctgf.info\"\r\n            }\r\n        ],\r\n        \"phones\": [\r\n            {\r\n                \"phone\": \"11934022122\"\r\n            }\r\n        ],\r\n        \"organization_id\": \"619797a7cd75060011f6ad2d\"\r\n        \r\n        \r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/contacts",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "contatos - alterar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\": \"{{RD_Token}}\",\r\n    \"contact\": {\r\n        \"name\": \"Cleber Ferrari\",\r\n        \r\n\r\n\r\n        \"birthday\": {\"day\": 16, \"month\": 12, \"year\": 1976},\r\n\r\n        \"emails\": [\r\n            {\r\n                \"email\": \"cleber.ferrari@ctgf.info\"\r\n            }\r\n        ],\r\n        \"phones\": [\r\n            {\r\n                \"phone\": \"11934022122\"\r\n            }\r\n        ],\r\n        \"organization_id\": \"619797a7cd75060011f6ad2d\"\r\n        \r\n        \r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/contacts/iddocontato",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"contacts",
+						"iddocontato"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "produtos - listar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/products?token={{RD_Token}}&page=1&limit=200",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{RD_Token}}"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "200"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "produtos - cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\"token\": \"{{RD_Token}}\",\r\n\"product\": {\r\n  \"name\": \"nome do produto\",\r\n  \"description\": \"descrcao do produto\",\r\n  \"base_price\": \"10.00\"\r\n}\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/products",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "produtos - alterar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\"token\": \"{{RD_Token}}\",\r\n\"product\": {\r\n    \"_id\": \"61aa0cbe7f7105001488128c\",\r\n    \"name\": \"nome do produto\",\r\n    \"description\": \"descrcao do produto\",\r\n    \"base_price\": \"10.00\"\r\n}\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/products/61aa0cbe7f7105001488128c",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"61aa0cbe7f7105001488128c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "oportunidades - listar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/deals?token={{RD_Token}}&organization=619fc227c8f38200183d6028",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"deals"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{RD_Token}}"
+						},
+						{
+							"key": "organization",
+							"value": "619fc227c8f38200183d6028"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "oportunidades - incluir",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"token\": \"{{RD_Token}}\",\r\n  \"deal\": {\r\n    \"name\": \"nome da oportunidade\",\r\n    \"user_id\": \"{{RD_user}}\"\r\n  },\r\n  \"deal_products\": [\r\n    {\r\n      \"name\": \"nome do produto\",\r\n      \"description\": \"Description Product 1\",\r\n      \"amount\": 1\r\n    }\r\n  ],\r\n   \"organization\": {\r\n\r\n    \"_id\": \"619fc227c8f38200183d6028\"\r\n\r\n  }\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/deals?token={{RD_Token}}",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"deals"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{RD_Token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "oportunidades - alterar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"token\": \"{{RD_Token}}\",\r\n  \"deal\": {\r\n    \"name\": \"nome da oportunidade 2\",\r\n    \"user_id\": \"{{RD_user}}\"\r\n  },\r\n  \"deal_products\": [\r\n    {\r\n      \"name\": \"nome do produto\",\r\n      \"description\": \"Description Product 1\",\r\n      \"amount\": 1\r\n    }\r\n  ],\r\n   \"organization\": {\r\n\r\n    \"_id\": \"619fc227c8f38200183d6028\"\r\n\r\n  }\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/deals/61aa3c9ca4b6ee0014c59534",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"deals",
+						"61aa3c9ca4b6ee0014c59534"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tarefas - incluir",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"token\": \"{{RD_Token}}\",\r\n\"task\": {\r\n\"deal_id\": \"61aa3c9ca4b6ee0014c59534\",\r\n\"user_ids\": [\"{{RD_user}}\"],\r\n\"subject\": \"Acompanhar venda realizada em 31/12/1980\",                    \r\n\"type\": \"task\",\r\n\"hour\": \"08:00\",\r\n\"date\": \"2021-12-02\",\r\n\"notes\": \"\"\r\n}\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://plugcrm.net/api/v1/tasks",
+					"protocol": "https",
+					"host": [
+						"plugcrm",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "RD_Token",
+			"value": "xxxxxx"
+		}
+	]
+}
